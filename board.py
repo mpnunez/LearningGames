@@ -16,6 +16,8 @@ class Board:
         self.open_spots = [i for i in range(n_rows*n_cols)]
         self.states = np.zeros([n_rows*n_cols])
         
-        
+    def reset(self):
+        self.states = np.zeros([self.n_rows*self.n_cols])
+    
     def show(self):
         print(self.states.reshape([self.n_rows,self.n_cols]))
