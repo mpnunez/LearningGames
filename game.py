@@ -34,7 +34,7 @@ class Game:
             
             for p_ind, player in enumerate(self.players):
                 if self.board.open_spots == []:
-                    print('The game is a draw.')
+                    #print('The game is a draw.')
                     result = 0.5
                     game_over = True
                     break
@@ -45,14 +45,14 @@ class Game:
                     # Check win condition
                     winning_move = self.does_he_win(player)
                     if winning_move:
-                        print(player.name + ' wins!')
+                        #print(player.name + ' wins!')
                         result = p_ind
                         game_over = True
                         break
                     
-                self.board.show()
+                #self.board.show()
             
-        self.board.show()
+        #self.board.show()
         
         return np.array(states), result
         

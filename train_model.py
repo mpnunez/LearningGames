@@ -10,12 +10,20 @@ from sklearn.neural_network import MLPRegressor
 from tensorflow import keras
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import sys
 
 def main():
     
     print('Train the model')
     X = np.load('X.npy')
     Y = np.load('Y.npy')
+    
+    # Feature engineering
+    player_one_spot = (X == 1).astype(int)
+    player_two_spot = (X == 2).astype(int)
+    empty_spot = (X == 0).astype(int)
+    X = np.hstack([player_one_spot, player_two_spot, empty_spot])
+    Y = Y * 2 - 1
     
     model = keras.Sequential([keras.layers.Dense(18, activation=tf.nn.relu),keras.layers.Dense(1)])
     
